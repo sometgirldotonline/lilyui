@@ -1,13 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>lilyUI R36s UI</title>
     <style>
+        @font-face {
+            font-family: Fredoka;
+            src: url(fredoka.ttf);
+        }
+
+        html {
+            width: 640px;
+            height: 480px;
+            scroll-behavior: smooth !important;
+            background-color: black;
+        }
+
+        body {
+            font-family: Fredoka;
+            color: white;
+            font-weight: bold;
+            margin: 0px;
+            padding: 0px;
+            width: 640px;
+            height: 480px;
+            background-repeat: no-repeat !important;
+            background: radial-gradient(100.52% 100.52% at 49.69% 100.52%, #1C002A 0%, #610D8C 100%);
+        }
+
+        .toolbar {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 0px;
+            gap: 25px;
+
+            position: absolute;
+            width: 640px;
+            height: 50px;
+            left: 0px;
+            top: calc(480px - 50px);
+            background: rgba(0, 0, 0, 0.34);
+            box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.34);
+        }
+
+        .time {
+            font-family: 'Fredoka';
+            font-size: 24px;
+            -webkit-background-clip: text;
+            background-clip: text;
+            background-image: linear-gradient(rgb(100, 100, 100), #fff 50%);
+            color: transparent;
+
+        }
+
+
+
+        .selector {
+            display: flex;
+            flex-direction: row;
+            /* justify-content: center; */
+            align-items: center;
+            padding: 0px;
+            gap: 65px;
+
+            position: absolute;
+            width: 640px;
+            height: 430px;
+            left: 0px;
+            top: 0px;
+            scroll-snap-type: x mandatory;
+            box-sizing: border-box;
+            overflow-x: scroll;
+            padding-left: calc(50% - 137.5px);
+            padding-right: calc(50% - 137.5px);
+        }
+
+        *::-webkit-scrollbar {
+            width: 0px;
+            height: 0px;
+        }
+
+        .card {
+
+            scroll-snap-align: center;
+
+            display: flex;
+            flex: 0 0 auto;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            min-width: 275px !important;
+            width: 275px !important;
+            height: 280px !important;
+            transition: ease-in-out 0.1s all;
+            scale: 1;
+            filter: blur(0px);
+            opacity: 1;
+
+            & .card-image {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                width: 275px;
+                height: 218px;
+                border-radius: 15px;
+
+                & img {
+                    height: 172px;
+                    width: auto;
+                    flex: none;
+                    order: 0;
+                    flex-grow: 0;
+                }
+
+            }
+
+            & .card-label {
+                font-size: 22px;
+                align-items: center;
+                text-align: center;
+                -webkit-background-clip: text;
+                background-clip: text;
+                background-image: linear-gradient(rgb(100, 100, 100), #fff 25%);
+                color: transparent;
+            }
+
+            &.card:not(.focus) {
+                scale: 0.8;
+                filter: blur(5px);
+                opacity: 0.8;
+            }
+        }
     </style>
 </head>
-<body>
 
+<body>
+    <div class="selector">
+        <div class="card ">
+            <div class="card-image" style="background: linear-gradient(122.62deg, #433F8D 0%, #A01D5A 100%);"><img src="gb.png" alt=""></div>
+            <span class="card-label">Game Boy / GBC / GBA<br>103 Games</span>
+        </div>
+        <div class="card ">
+            <div class="card-image" style="background: linear-gradient(122.62deg, #F5BE04 0%, #E12323 100%);"><img src="linux.png" alt=""></div>
+            <span class="card-label">Linux Native<br>103 Softwares</span>
+        </div>
+        <div class="card focus">
+            <div class="card-image" style="background: linear-gradient(122.62deg, #DF0024 0%, #3C5DA5 25%, #00AC9f 50%, #F3C300 100%);"><img src="ps1.png" alt=""></div>
+            <span class="card-label">Playstation 1<br>103 Games</span>
+        </div>
+
+    </div>
+    <div class="toolbar"><span class="time">00:00</span></div>
+    <a href="#focus" class="s2f"></a>
+    <script src="script.js"></script>
 </body>
+
 </html>

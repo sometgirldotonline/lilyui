@@ -69,7 +69,8 @@ def on_activate(app):
     
     # Create WebView
     webview = WebKit.WebView()
-    
+    settings = webview.get_settings()
+    settings.set_property("enable-developer-extras", True)
     # Get the user content manager from webview
     user_content_manager = webview.get_user_content_manager()
     user_content_manager.register_script_message_handler('pythonBridge')
