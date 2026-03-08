@@ -1,3 +1,4 @@
+# the basis of this file (the basis of the message passing and creation of webview) is LLM generated. Sorry.
 import gi
 gi.require_version('Gtk', '4.0')
 gi.require_version('WebKit', '6.0')
