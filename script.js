@@ -18,13 +18,13 @@ function scrolltoCard(focusEl) {
         }
     })
     focusEl.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
-            // document.querySelector("a.s2f").click()
+    // document.querySelector("a.s2f").click()
 }
 function moveFocus(moveBy = 1) {
     var f = document.querySelector(".focus")
     var friends = [...f.parentElement.children]
     var newF = friends[friends.indexOf(f) + moveBy]
-    if(newF !== undefined){
+    if (newF !== undefined) {
         console.log("MF", f, moveBy, friends[friends.indexOf(f) + moveBy])
         scrolltoCard(newF)
     }
@@ -39,9 +39,9 @@ function moveFocus(moveBy = 1) {
  */
 
 // i had AI write the debounce function, debouning is like a black box to me, i do not understand it.
-const debounce = (func, delay) => {
+var debounce = (func, delay) => {
     let timeout;
-    return function(...args) {
+    return function (...args) {
         const context = this;
         clearTimeout(timeout);
         timeout = setTimeout(() => {
@@ -76,3 +76,25 @@ if (navigator.getGamepads()[0]) {
     prevBtns = navigator.getGamepads()[0].buttons.map(b => b.pressed)
     requestAnimationFrame(inputLoop);
 }
+
+scrolltoCard(document.querySelector(".card.focus"))
+
+
+window.addEventListener('error', function (event) {
+    try {
+        for (let i = 10; i > 0; i--) {
+            setTimeout(() => {
+                document.body.innerHTML = `An error occurred: ${event.message}<br>Reloading page in ${i} seconds...<br><br>${event.filename}:${event.lineno}:${event.colno}`;
+            }, (10 - i) * 1000);
+        }
+        setTimeout(() => {
+            location.reload();
+        }, 10000);
+    } catch (error) {
+        document.write("Ah shit.")
+        setTimeout(() => {
+            location.reload();
+        }, 10000);
+    }
+
+}, true); 

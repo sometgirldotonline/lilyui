@@ -82,7 +82,7 @@ def on_activate(app):
     win.set_child(webview)
     
     # Load local HTML file
-    html_path = os.path.join(os.path.dirname(__file__), 'index.html')
+    html_path = os.path.join(os.path.dirname(__file__), 'lilyui.html')
     html_uri = f"file://{html_path}"
     webview.load_uri(html_uri)
 
