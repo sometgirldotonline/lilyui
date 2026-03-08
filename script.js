@@ -38,17 +38,6 @@ function moveFocus(moveBy = 1) {
  * 1: b
  */
 
-// i had AI write the debounce function, debouning is like a black box to me, i do not understand it.
-var debounce = (func, delay) => {
-    let timeout;
-    return function (...args) {
-        const context = this;
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-            func.apply(context, args);
-        }, delay);
-    };
-};
 var prevBtns = undefined;
 function inputLoop() {
     var gg = navigator.getGamepads()
