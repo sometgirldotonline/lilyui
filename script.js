@@ -24,6 +24,12 @@ function moveFocus(moveBy = 1) {
     var f = document.querySelector(".focus")
     var friends = [...f.parentElement.children]
     var newF = friends[friends.indexOf(f) + moveBy]
+    if (friends.indexOf(f) + moveBy < 0) {
+        newF = friends[friends.length - 1]
+    }
+    else if (friends.indexOf(f) + moveBy >= friends.length) {
+        newF = friends[0]
+    }
     if (newF !== undefined) {
         console.log("MF", f, moveBy, friends[friends.indexOf(f) + moveBy])
         scrolltoCard(newF)
