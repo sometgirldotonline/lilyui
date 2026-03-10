@@ -18,6 +18,17 @@
             background-color: black;
         }
 
+        /* body::after{
+            background-image: url(./screenshots/Screenshot.png);
+            position: absolute;
+            content: ' ';
+            display: block;
+            top:0px;
+            width: 640px;
+            height: 480px;
+            left:0px;
+            mix-blend-mode:difference;
+        } */
         body {
             font-family: Fredoka;
             color: white;
@@ -47,6 +58,21 @@
             top: calc(480px - 50px);
             background: rgba(0, 0, 0, 0.34);
             box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.34);
+
+            & img {
+                width: 26px;
+                height: 22px;
+                object-fit: none;
+                /* no scaling */
+                object-position: center;
+                /* crop from center */
+                display: block;
+
+            }
+        }
+
+        .focus {
+            filter: tint();
         }
 
         .time {
@@ -91,6 +117,7 @@
         .card {
 
             scroll-snap-align: center;
+            filter: blur(0px) drop-shadow(1px 1px 0 blue) drop-shadow(-1px -1px 0 blue) drop-shadow(1px -1px 0 blue) drop-shadow(-1px 1px 0 blue);
 
             display: flex;
             flex: 0 0 auto;
@@ -144,23 +171,33 @@
 </head>
 
 <body>
+
     <div class="selector">
         <div class="card ">
-            <div class="card-image" style="background: linear-gradient(122.62deg, #433F8D 0%, #A01D5A 100%);"><img src="platform_icons/gb.png" alt=""></div>
+            <div class="card-image" style="background: linear-gradient(122.62deg, #433F8D 0%, #A01D5A 100%);"><img
+                    src="platform_icons/gb.png" alt=""></div>
             <span class="card-label">Game Boy / GBC / GBA<br>103 Games</span>
         </div>
         <div class="card focus">
-            <div class="card-image" style="background: linear-gradient(122.62deg, #F5BE04 0%, #E12323 100%);"><img src="platform_icons/linux.png" alt=""></div>
+            <div class="card-image" style="background: linear-gradient(122.62deg, #F5BE04 0%, #E12323 100%);"><img
+                    src="platform_icons/linux.png" alt=""></div>
             <span class="card-label">Linux Native<br>103 Softwares</span>
         </div>
         <div class="card ">
-            <div class="card-image" style="background: linear-gradient(122.62deg, #DF0024 0%, #3C5DA5 25%, #00AC9f 50%, #F3C300 100%);"><img src="platform_icons/ps1.png" alt=""></div>
+            <div class="card-image"
+                style="background: linear-gradient(122.62deg, #DF0024 0%, #3C5DA5 25%, #00AC9f 50%, #F3C300 100%);"><img
+                    src="platform_icons/ps1.png" alt=""></div>
             <span class="card-label">Playstation 1<br>103 Games</span>
         </div>
 
     </div>
-    <div class="toolbar"><span class="time">00:00</span></div>
-    <a href="#focus" class="s2f"></a>
+    <div class="toolbar">
+        <img class="" src="icons/music.svg" alt="Music controls"><img src="icons/download.svg" alt="Downloads"><img
+            src="icons/settings.svg" alt="settings"><img src="icons/power.svg" alt="Power">
+        <span class="time">00:00</span>
+        <img src="icons/notifications.svg" alt="notifications"><img src="icons/bluetooth.svg" alt="bluetooth"><img
+            src="icons/battery_full.svg" alt="Battery"><img src="icons/wifi_full.svg" alt="Wifi">
+    </div>
     <script src="script.js"></script>
 </body>
 

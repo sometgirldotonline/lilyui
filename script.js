@@ -8,7 +8,6 @@ function onPythonResponse(message) {
 
 function scrolltoCard(focusEl) {
     focusEl.classList.add("focus")
-    focusEl.id = "focus"
     var friends = [...focusEl.parentElement.children]
     var focusIndex = friends.indexOf(focusEl)
     friends.forEach((el, i) => {
@@ -18,9 +17,8 @@ function scrolltoCard(focusEl) {
         }
     })
     focusEl.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
-    // document.querySelector("a.s2f").click()
 }
-function moveFocus(moveBy = 1) {
+function moveFocusX(moveBy = 1) {
     var f = document.querySelector(".focus")
     var friends = [...f.parentElement.children]
     var newF = friends[friends.indexOf(f) + moveBy]
@@ -30,9 +28,59 @@ function moveFocus(moveBy = 1) {
     else if (friends.indexOf(f) + moveBy >= friends.length) {
         newF = friends[0]
     }
+    if (newF.parentElement == document.body) {
+        newF = newF.children[0]
+    }
     if (newF !== undefined) {
         console.log("MF", f, moveBy, friends[friends.indexOf(f) + moveBy])
-        scrolltoCard(newF)
+        if (newF.classList.contains("card")) {
+            scrolltoCard(newF)
+        }
+        else {
+            document.querySelector(".focus").classList.remove("focus")
+            newF.classList.add("focus")
+        }
+    }
+}
+
+function moveFocusY(moveBy = 1) {
+    // save X position!
+    var foc = document.querySelector(".focus")
+    foc.parentElement.setAttribute("lastPosition", [...foc.parentElement.children].indexOf(foc))
+
+
+    var f = foc.parentElement
+    var friends = [...f.parentElement.children].filter((val) => { return val.tagName == "DIV" })
+    var newF = friends[friends.indexOf(f) + moveBy]
+    if (friends.indexOf(f) + moveBy < 0) {
+        newF = friends[friends.length - 1]
+    }
+    else if (friends.indexOf(f) + moveBy >= friends.length) {
+        newF = friends[0]
+    }
+    if (newF.tagName !== "DIV") {
+        newF = friends[0]
+    }
+    if (newF !== undefined) {
+        lastPos = newF.getAttribute("lastPosition")
+        if (lastPos !== null && newF.children.length > lastPos) {
+            newF = newF.children[lastPos]
+        }
+        else {
+            newF = newF.children[0]
+        }
+
+        if (newF.parentElement == document.body) {
+            newF = friends[0].children[0]
+        }
+
+    }
+
+    if (newF !== undefined) {
+        console.log("MF", f, moveBy, friends[friends.indexOf(f) + moveBy])
+        document.querySelector(".focus").classList.remove("focus")
+        newF.classList.add("focus")
+
     }
 }
 /**
@@ -50,10 +98,16 @@ function inputLoop() {
     if (gg.length > 0) {
         console.log(gg[0].buttons[14].pressed, prevBtns[14], gg[0].buttons[15].pressed, prevBtns[15])
         if (gg[0].buttons[14].pressed && !prevBtns[14]) {
-            moveFocus(-1)
+            moveFocusX(-1)
         }
         else if (gg[0].buttons[15].pressed && !prevBtns[15]) {
-            moveFocus(1)
+            moveFocusX(1)
+        }
+        else if (gg[0].buttons[12].pressed && !prevBtns[12]) {
+            moveFocusY(-1)
+        }
+        else if (gg[0].buttons[13].pressed && !prevBtns[13]) {
+            moveFocusY(1)
         }
         prevBtns = gg[0].buttons.map(b => b.pressed)
     }
