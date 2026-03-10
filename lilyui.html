@@ -7,6 +7,38 @@
     <title>lilyUI R36s UI</title>
     <style>
         @font-face {
+            font-family: "Material Symbols Rounded";
+            font-style: normal;
+            font-weight: 100 700;
+            font-display: block;
+            src: url("./material-symbols-rounded.woff2") format("woff2");
+        }
+
+        .material-symbols-rounded,
+        .toolbar .icon {
+            font-family: "Material Symbols Rounded";
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            font-feature-settings: "liga";
+            font-variation-settings:
+                'FILL' 1,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+
+        @font-face {
             font-family: Fredoka;
             src: url(fredoka.ttf);
         }
@@ -69,19 +101,32 @@
                 display: block;
 
             }
+
+            & .icon {
+
+                font-size: 22pt;
+            }
+
+            & span {
+                text-shadow: 0px 0px 2.93333px rgba(0, 0, 0, 0.25);
+                -webkit-background-clip: text;
+                -moz-background-clip: text;
+                background-clip: text;
+                background-color: white;
+                color: transparent;
+                display: block;
+            }
         }
 
-        .focus {
-            filter: tint();
+        .focus:is(.toolbar > *) {
+            text-shadow: 0px 0px 2.93333px rgba(4, 0, 255, 0.25);
+
+
         }
 
         .time {
             font-family: 'Fredoka';
             font-size: 24px;
-            -webkit-background-clip: text;
-            background-clip: text;
-            background-image: linear-gradient(rgb(100, 100, 100), #fff 50%);
-            color: transparent;
 
         }
 
@@ -117,7 +162,7 @@
         .card {
 
             scroll-snap-align: center;
-            filter: blur(0px) drop-shadow(1px 1px 0 blue) drop-shadow(-1px -1px 0 blue) drop-shadow(1px -1px 0 blue) drop-shadow(-1px 1px 0 blue);
+            filter: blur(0px);
 
             display: flex;
             flex: 0 0 auto;
@@ -192,11 +237,15 @@
 
     </div>
     <div class="toolbar">
-        <img class="" src="icons/music.svg" alt="Music controls"><img src="icons/download.svg" alt="Downloads"><img
-            src="icons/settings.svg" alt="settings"><img src="icons/power.svg" alt="Power">
+        <span class="icon">music_note</span>
+        <span class="icon">download</span>
+        <span class="icon">settings</span>
+        <span class="icon">power_settings_new</span>
         <span class="time">00:00</span>
-        <img src="icons/notifications.svg" alt="notifications"><img src="icons/bluetooth.svg" alt="bluetooth"><img
-            src="icons/battery_full.svg" alt="Battery"><img src="icons/wifi_full.svg" alt="Wifi">
+        <span class="icon">notifications</span>
+        <span class="icon">bluetooth</span>
+        <span class="icon">wifi</span>
+        <span class="icon">battery_android_full</span>
     </div>
     <script src="script.js"></script>
 </body>
