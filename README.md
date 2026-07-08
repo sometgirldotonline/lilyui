@@ -3,6 +3,8 @@ Work in progress early stages game console / 10foot UI. Literally only has chang
 
 Was originally targeted at the R36s console (https://handhelds.wiki/R36S_Overview), but has since been modified to work on any size display and also use keyboard for controls (arrow keys)
 
+The reason theres some python stuff in here is because the final version will use Gtkwebkit in python to run, or at least that was the original plan but likely will migrate to just using Tauri and Rust.
+
 <!-- 
 ## Requirements
 ### PIPs
