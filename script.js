@@ -7,6 +7,7 @@ function onPythonResponse(message) {
 }
 
 function scrolltoCard(focusEl) {
+    document.querySelector(".selector").style.scrollSnapType = "x mandatory"
     focusEl.classList.add("focus")
     var friends = [...focusEl.parentElement.children]
     var focusIndex = friends.indexOf(focusEl)
@@ -17,9 +18,13 @@ function scrolltoCard(focusEl) {
         }
     })
     focusEl.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+    document.querySelector(".selector").style.scrollSnapType = ""
 }
 function moveFocusX(moveBy = 1) {
     var f = document.querySelector(".focus")
+    if(document.querySelector(".open")&&f.classList.contains("card")){
+        return
+    }
     var friends = [...f.parentElement.children]
     var newF = friends[friends.indexOf(f) + moveBy]
     if (friends.indexOf(f) + moveBy < 0) {
@@ -32,9 +37,13 @@ function moveFocusX(moveBy = 1) {
         newF = newF.children[0]
     }
     if (newF !== undefined) {
+        if (newF.classList.contains("nofocus")) {
+            var newF = friends[friends.indexOf(f) + moveBy + moveBy]
+        }
         console.log("MF", f, moveBy, friends[friends.indexOf(f) + moveBy])
         if (newF.classList.contains("card")) {
             scrolltoCard(newF)
+
         }
         else {
             document.querySelector(".focus").classList.remove("focus")
@@ -113,6 +122,21 @@ function inputLoop() {
     }
 
     requestAnimationFrame(inputLoop)
+}
+document.onkeyup = function (e) {
+    e.preventDefault()
+    if (e.key == "ArrowLeft") {
+        moveFocusX(-1)
+    }
+    else if (e.key == "ArrowRight") {
+        moveFocusX(1)
+    }
+    else if (e.key == "ArrowUp") {
+        moveFocusY(-1)
+    }
+    else if (e.key == "ArrowDown") {
+        moveFocusY(1)
+    }
 }
 window.addEventListener("gamepadconnected", () => {
     console.log("Gamepad connected, starting update loop.");
