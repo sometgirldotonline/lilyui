@@ -5,6 +5,8 @@ Was originally targeted at the R36s console (https://handhelds.wiki/R36S_Overvie
 
 The reason theres some python stuff in here is because the final version will use Gtkwebkit in python to run, or at least that was the original plan but likely will migrate to just using Tauri and Rust.
 
+# Demo: https://pages.sometgirl.online/lilyui/
+
 <!-- 
 ## Requirements
 ### PIPs
