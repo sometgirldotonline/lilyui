@@ -1,6 +1,8 @@
 # lilyui
 Work in progress early stages game console / 10foot UI. Literally only has changing between items because that is painful to implement.
 
+Was originally targeted at the R36s console (https://handhelds.wiki/R36S_Overview), but has since been modified to work on any size display and also use keyboard for controls (arrow keys)
+
 <!-- 
 ## Requirements
 ### PIPs
