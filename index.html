@@ -4,51 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>lilyUI Web Demo</title>
+    <title>lilyUI R36s UI</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <center>
-        <h1>Web Demo of LilyUI</h1>
-        <p>As this is a demo, expect literally nothing to work its just to show.<br>Also, you'll need a Game Controller
-            for this.</p>
-        <h3>Controls</h3>
-        <p>Use the D-pad to move, A to select, B to go back. Standard shit.</p>
-    </center>
-    <iframe src="lilyui.html" frameborder="0" width="640px" height="480px"></iframe>
-    <style>
 
-        @font-face {
-            font-family: Fredoka;
-            src: url(fredoka.ttf);
-        }
+    <div class="selector">
+        <div class="card ">
+            <div class="card-image" style="background: linear-gradient(122.62deg, #433F8D 0%, #A01D5A 100%);"><img
+                    src="platform_icons/gb.png" alt=""></div>
+            <span class="card-label"><span class="pform-label">Game Boy / GBC / GBA</span><br><span class="gc-label">103 Games</span></span>
+        </div>
+        <div class="card focus">
+            <div class="card-image" style="background: linear-gradient(122.62deg, #F5BE04 0%, #E12323 100%);"><img
+                    src="platform_icons/linux.png" alt=""></div>
+            <span class="card-label"><span class="pform-label">Linux Native</span><br><span class="gc-label">103 Softwares</span></span>
+        </div>
+        <div class="card ">
+            <div class="card-image"
+                style="background: linear-gradient(122.62deg, #DF0024 0%, #3C5DA5 25%, #00AC9f 50%, #F3C300 100%);"><img
+                    src="platform_icons/ps1.png" alt=""></div>
+            <span class="card-label"><span class="pform-label">Playstation 1</span><br><span class="gc-label">103 Games</span></span>
+        </div>
 
-        html {
-            background: radial-gradient(100.52% 100.52% at 49.69% 100.52%, #1C002A 0%, #610D8C 100%);
-            scroll-behavior: smooth !important;
-            background-color: black;
-        }
-
-        body {
-            font-family: Fredoka;
-            color: white;
-            font-weight: bold;
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden;
-            background-repeat: no-repeat !important;
-        }
-
-        iframe {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
-            border: 5px solid rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-        }
-    </style>
+    </div>
+    <div class="toolbar">
+        <span class="icon">music_note</span>
+        <!-- <span class="icon">download</span> -->
+        <span class="icon">settings</span>
+        <span class="icon">power_settings_new</span>
+        <span class="time nofocus">00:00</span>
+        <span class="icon">notifications</span>
+        <span class="icon">bluetooth</span>
+        <span class="icon">wifi</span>
+        <!-- <span class="icon">battery_android_full</span> -->
+    </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
